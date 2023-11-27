@@ -22,7 +22,7 @@ export const initialNodes = [
   {
     id: '2b',
     type: 'node',
-    data: { label: 'brain', heading: "תוכנית 2", content: "This is text 2b" },
+    data: { label: 'brain', heading: "תוכנית 3", content: "This is text 2b" },
     position: { x: 0, y: 300 },
   },
   {
@@ -52,7 +52,7 @@ export const initialNodes = [
   {
     id: '10',
     type: 'node',
-    data: { label: 'template',heading: "תבית", content: "This is text 7" },
+    data: { label: 'template',heading: "תבנית", content: "This is text 7" },
     position: { x: 600, y: 300 },
   },
 ];

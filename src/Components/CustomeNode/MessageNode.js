@@ -67,7 +67,7 @@ const CustomNode = ({ data, selected  }) => {
           </div>
         </div>
       </div>
-      <Handle type="source" position={Position.Bottom} id="b" />
+      <Handle type="source" position={Position.Bottom} id="b"  style={style.handleSource}/>
       <Handle type="target" position={Position.Top} id="a" />
     </div>
   );

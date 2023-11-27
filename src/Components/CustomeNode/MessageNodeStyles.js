@@ -57,5 +57,8 @@ export const style = {
   containerIcon:{
     textAlign: 'center',
     width: 'fit-content',
+  },
+  handleSource:{
+    bottom: "-20px"
   }
 }
