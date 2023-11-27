@@ -59,10 +59,10 @@ const CustomNode = ({ data, selected  }) => {
       <div style={{ ...(selected ? style.selected : []) }}>
       <div style={{ ...style.customTitle, borderColor:getColorByLabel(data.label) }}>
           <div style={style.circleIcon}>
-        <div style={{color:getColorByLabel(data.label)}}>
+        <div style={{color:getColorByLabel(data.label), ...style.containerIcon}}>
           {getIconByLabel(data.label)}
           <label style={style.arrowIcon}>{isCollapsed ? <ArrowDownwardIcon style={{fontSize: '1.2rem'}} /> : <ArrowUpwardIcon  style={{fontSize: '1.2rem'}}  />}</label>
-
+          <div style={style.labelText}>{data.heading}</div>
           </div>
           </div>
         </div>

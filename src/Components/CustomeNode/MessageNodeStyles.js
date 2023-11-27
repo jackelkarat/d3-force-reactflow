@@ -6,7 +6,7 @@ export const style = {
     padding: "8px 32px",
     flexGrow: 1,
     backgroundColor: "#eee",
-    borderRadius: "10px"
+    borderRadius: "10px",
   },
   contentWrapper: {
     padding: "8px 0px"
@@ -47,5 +47,15 @@ export const style = {
     position:'absolute',
     left:' 2.4rem',
     top: '50%'
+  },
+  labelText:{
+    color: 'grey',
+    fontSize:'small',
+    marginTop: '10px',
+    fontWeight: 'bold'
+  },
+  containerIcon:{
+    textAlign: 'center',
+    width: 'fit-content',
   }
 }
