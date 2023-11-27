@@ -51,7 +51,7 @@ export const style = {
   labelText:{
     color: 'grey',
     fontSize:'small',
-    marginTop: '10px',
+    marginTop: '7px',
     fontWeight: 'bold'
   },
   containerIcon:{
