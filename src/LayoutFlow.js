@@ -131,6 +131,7 @@ const LayoutFlow = () => {
   const [initialised, { toggle, isRunning }] = useLayoutedElements();
   const { fitView, ...otherFlowMethods } = useReactFlow(); 
   const [hidden, setHidden] = useState(true);
+  const [lastSortOrder, setLastSortOrder] = useState('asc');
 
   useLayoutEffect(() => {
     onLayout({ direction: 'DOWN', useInitialNodes: true });
@@ -219,6 +220,29 @@ const LayoutFlow = () => {
       toast.error('No saved flow state found!');
     }
   };
+
+  const onLayoutByDate = useCallback(() => {
+    const sortedNodes = [...nodes].sort((a, b) => {
+      if (lastSortOrder === 'asc') {
+        const dateA = new Date(a.data.date);
+        const dateB = new Date(b.data.date);
+        return dateA - dateB;
+      } else {
+        const dateA = new Date(a.data.date);
+        const dateB = new Date(b.data.date);
+        return dateB - dateA;
+      }
+    });
+  
+    const updatedNodes = sortedNodes.map((node, index) => ({
+      ...node,
+      position: { x: index * 100, y: index * 50 },
+    }));
+  
+    setNodes(updatedNodes);
+    setLastSortOrder(lastSortOrder === 'asc' ? 'desc' : 'asc');
+  }, [nodes, lastSortOrder]);
+  
   return (
     <>
     <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
@@ -251,6 +275,10 @@ const LayoutFlow = () => {
         <Button onClick={() => onLayout({ direction: 'RIGHT' })}
           variant="contained"
           color="primary">horizontal layout</Button>
+        
+        <Button onClick={onLayoutByDate} variant="contained" color="primary">
+          {lastSortOrder === 'asc' ? 'Sort by Date Asc' : 'Sort by Date Desc'}
+       </Button>
       </Panel>
       <Panel>
         {initialised && (
